@@ -5,7 +5,9 @@ import { Action, createReducer } from '@ngrx/store';
 
 export const initialTicketState: TicketState = {
     // initial state at the beginning of application
-    tickets: []
+    tickets: [],
+    isLoading: false,
+    error: null
 };
 
 const _ticketsReducer = createReducer(initialTicketState);
