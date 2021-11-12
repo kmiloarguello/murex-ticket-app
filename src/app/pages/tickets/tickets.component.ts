@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as ticketsActions from '../../store/tickets/tickets.actions';
 
 @Component({
   selector: 'app-tickets',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _store: Store) { }
 
   ngOnInit(): void {
+    this._store.dispatch(ticketsActions.requestTickets());
   }
 
 }
