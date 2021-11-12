@@ -5,5 +5,5 @@ export const getTicketsFeatureState = createFeatureSelector<TicketState>('ticket
 
 export const selectTickets = createSelector(
     getTicketsFeatureState,
-    (state: TicketState) => state.tickets
+    (state: TicketState) => state.ticketsdata
 )

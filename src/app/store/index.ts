@@ -8,7 +8,7 @@ export interface RootState {
 }
 
 export const appReducers = {
-    tickets: TicketsReducer
+    data: TicketsReducer
 }
 
 export const appEffects = [TicketsEffects];

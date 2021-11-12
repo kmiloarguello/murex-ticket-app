@@ -14,8 +14,8 @@ export class TicketsEffects {
       ofType(ticketsActions.requestTickets),
       switchMap((_) =>
         this._ticketsService.getTickets().pipe(
-          map((tickets: any) => {
-            return ticketsActions.successTickets({ tickets });
+          map((ticketsdata: any) => {
+            return ticketsActions.successTickets({ ticketsdata });
           }),
           catchError((error) => {
             return of(ticketsActions.errorTickets({ error }));
