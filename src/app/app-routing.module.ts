@@ -12,6 +12,15 @@ const routes: Routes = [
     ]
   },
   {
+    path:'ticket',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/ticket/ticket.module').then((m) => m.TicketModule)
+      }
+    ]
+  },
+  {
     path:'',
     children: [
       {
