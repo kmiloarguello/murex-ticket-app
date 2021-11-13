@@ -9,7 +9,7 @@ import { iTicketsList } from './core/models/tickets.models';
 export class AppService {
   constructor(private readonly http: HttpClient) { }
 
-  public getTickets(): Observable<iTicketsList> {
-    return this.http.get<iTicketsList>('assets/tickets.json');
+  public getTickets(): Observable<iTicketsList[]> {
+    return this.http.get<iTicketsList[]>('assets/tickets.json');
   }
 }

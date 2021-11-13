@@ -12,17 +12,17 @@ export class TicketsEffects {
     requestTickets$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ticketsActions.requestTickets),
-      switchMap((_) =>
+      switchMap((_) => 
         this._ticketsService.getTickets().pipe(
-          map((ticketsdata: any) => {
-            return ticketsActions.successTickets({ ticketsdata });
+          map((tickets: any) => {
+            return ticketsActions.successTickets({ tickets });
           }),
           catchError((error) => {
             return of(ticketsActions.errorTickets({ error }));
           })
         )
       )
-    )
+    )    
   );
 }
 

@@ -1,3 +1,7 @@
 <div>
     Here there is a future list
 </div>
+<div *ngFor="let ticket in tickets">
+    <p>Hi Juli</p>
+    <p [innerHTML]="ticket.id"></p>
+</div>

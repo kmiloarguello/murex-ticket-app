@@ -6,7 +6,7 @@ import * as TicketsActions from './tickets.actions'
 
 export const initialTicketState: TicketState = {
     // initial state at the beginning of application
-    ticketsdata: [],
+    tickets: [],
     isLoading: false,
     error: null
 };
@@ -14,7 +14,7 @@ export const initialTicketState: TicketState = {
 const _ticketsReducer = createReducer(
     initialTicketState,
     on(TicketsActions.requestTickets, state => ({ ...state, isLoading: true })),
-    on(TicketsActions.successTickets, (state , { ticketsdata }) => ({ ...state, isLoading: false, ticketsdata })),
+    on(TicketsActions.successTickets, (state , { tickets }) => ({ ...state, isLoading: false, tickets })),
     on(TicketsActions.errorTickets, (state, {error}) => ({ ...state, error: error.message, isLoading: false })),
   );
 

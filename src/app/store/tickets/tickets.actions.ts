@@ -7,7 +7,7 @@ export const requestTickets = createAction(
 
 export const successTickets = createAction(
     '[CA] Success tickets',
-    props<{ ticketsdata: iTicketsList[] }>()
+    props<{ tickets: iTicketsList[] }>()
 )
 
 export const errorTickets = createAction(
