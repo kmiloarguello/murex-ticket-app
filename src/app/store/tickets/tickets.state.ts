@@ -1,9 +1,9 @@
 // Interface
 
-import { iTicketsList } from "src/app/core/models/tickets.models";
+import { Ticket } from "src/app/core/models/tickets.models";
 
 export interface TicketState {
-    tickets: iTicketsList[];
+    tickets: Ticket[];
     isLoading: boolean;
     error: any;
 }

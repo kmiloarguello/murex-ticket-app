@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { iTicketsList } from 'src/app/core/models/tickets.models';
+import { iTicketsList, Ticket } from 'src/app/core/models/tickets.models';
 
 @Component({
   selector: 'app-list',
@@ -7,7 +7,7 @@ import { iTicketsList } from 'src/app/core/models/tickets.models';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input() tickets?: iTicketsList[];
+  @Input() tickets?: Ticket[];
 
   constructor() { }
 

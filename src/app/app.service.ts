@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { iTicketsList } from './core/models/tickets.models';
+import { iTicketsList, Tickets } from './core/models/tickets.models';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { iTicketsList } from './core/models/tickets.models';
 export class AppService {
   constructor(private readonly http: HttpClient) { }
 
-  public getTickets(): Observable<iTicketsList[]> {
-    return this.http.get<iTicketsList[]>('assets/tickets.json');
+  public getTickets(): Observable<Tickets> {
+    return this.http.get<Tickets>('assets/tickets.json');
   }
 }

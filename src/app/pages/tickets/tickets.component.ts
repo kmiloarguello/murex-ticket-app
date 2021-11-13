@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { iTicketsList } from 'src/app/core/models/tickets.models';
+import { iTicketsList, Ticket } from 'src/app/core/models/tickets.models';
 import * as ticketsActions from '../../store/tickets/tickets.actions';
 import * as ticketsSelectors from '../../store/tickets/tickets.selectors';
 
@@ -12,7 +12,7 @@ import * as ticketsSelectors from '../../store/tickets/tickets.selectors';
 })
 export class TicketsComponent implements OnInit {
 
-  public tickets$: Observable<iTicketsList[]>;
+  public tickets$: Observable<Ticket[]>;
 
   constructor(private _store: Store) {
     this.tickets$ = this._store.select(ticketsSelectors.selectTickets);
@@ -20,10 +20,6 @@ export class TicketsComponent implements OnInit {
 
   ngOnInit(): void { 
     this._store.dispatch(ticketsActions.requestTickets());
-    
-    this.tickets$.subscribe((resp) => {
-      console.log(resp);
-    });
   }
 
 }

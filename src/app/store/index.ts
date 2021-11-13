@@ -4,11 +4,11 @@ import { TicketState } from "./tickets/tickets.state";
 
 
 export interface RootState {
-    tickets: TicketState
+    ticket: TicketState
 }
 
 export const appReducers = {
-    data: TicketsReducer
+    ticket: TicketsReducer
 }
 
 export const appEffects = [TicketsEffects];

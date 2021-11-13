@@ -4,6 +4,7 @@ import * as ticketsActions from './tickets.actions';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AppService } from "src/app/app.service";
+import { iTicketsList, Tickets } from "src/app/core/models/tickets.models";
 
 @Injectable()
 export class TicketsEffects {
@@ -14,7 +15,8 @@ export class TicketsEffects {
       ofType(ticketsActions.requestTickets),
       switchMap((_) => 
         this._ticketsService.getTickets().pipe(
-          map((tickets: any) => {
+          map((res: Tickets) => {
+            const { tickets } = res;
             return ticketsActions.successTickets({ tickets });
           }),
           catchError((error) => {

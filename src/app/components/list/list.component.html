@@ -1,7 +1,10 @@
 <div>
     Here there is a future list
 </div>
-<div *ngFor="let ticket in tickets">
-    <p>Hi Juli</p>
+<div class="list" *ngFor="let ticket of tickets">
     <p [innerHTML]="ticket.id"></p>
+    <p [innerHTML]="ticket.user"></p>
+    <p [innerHTML]="ticket.title"></p>
+    <p [innerHTML]="ticket.status"></p>
 </div>
+  

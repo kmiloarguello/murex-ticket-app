@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { TicketState } from './tickets.state';
 
-export const getTicketsFeatureState = createFeatureSelector<TicketState>('tickets');
+export const getTicketsFeatureState = createFeatureSelector('ticket');
 
 export const selectTickets = createSelector(
     getTicketsFeatureState,
