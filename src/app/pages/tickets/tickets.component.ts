@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { iTicketsList, Ticket } from 'src/app/core/models/tickets.models';
+import { Ticket } from 'src/app/core/models/tickets.models';
 import * as ticketsActions from '../../store/tickets/tickets.actions';
 import * as ticketsSelectors from '../../store/tickets/tickets.selectors';
 

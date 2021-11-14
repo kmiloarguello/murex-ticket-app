@@ -1,1 +1,41 @@
-<p>card works!</p>
+<div class="ticket" [attr.data-status]="ticket?.status" [ngClass]="'ticket-' + ticket?.status" >
+    <div class="ticket__header">
+      <h3 class="ticket-title">{{ ticket?.title  }}</h3>
+      <div class=ticket__header-categorycontainer>
+          <div class="ticket-category" [ngClass]="{
+            'ticket-category--primary': ticket?.category === 'BLOG',
+            'ticket-category--secondary': ticket?.category === 'LIBRARY',
+            'ticket-category--tertiary': ticket?.category === 'DOCUMENTATION'
+            }">
+                <span>{{ ticket?.category }}</span>
+            </div>
+            <button class="ticket-status">
+                <i class="material-icons">
+                    {{ ticket?.status == "OK" ? "check_circle_outline" : "" }}
+                    {{ ticket?.status == "FORWARD" ? "arrow_forward" : "" }}
+                    {{ ticket?.status == "WARNING" ? "error_outline" : "" }}
+                    {{ ticket?.status == "DECLINE" ? "highlight_off" : "" }}
+                </i>
+            </button>
+        </div>
+    </div>
+    <div class="ticket__description">
+        <p class="text-description">{{ ticket?.description }}</p>
+    </div>
+    <div class="ticket__footer">
+      <div class="ticket__footer__user-infos">
+        <img src="assets/user.svg" alt="user" />
+        <div class="user-status">
+          <h4>{{ ticket?.user }}</h4>
+          <span
+          class="card-status"
+          [ngClass]="{ 'ticket__footer__status--internal': ticket?.internal }"
+          >{{ ticket?.internal ? "Internal" : "External" }}</span>
+        </div>
+      </div>
+  
+      <div class="ticket__footer__idcontainer">
+        <p class="card-id">ID: <span> {{ ticket?.id }}</span></p>
+      </div>
+    </div>
+  </div>

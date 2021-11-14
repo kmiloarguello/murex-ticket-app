@@ -1,0 +1,163 @@
+@import '../../../variables.scss';
+
+.ticket {
+  background-color: white;
+  box-shadow: 0px 0px 16px -1px rgba(255, 126, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  width: 310px;
+  cursor: pointer;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 0 auto 10px auto;
+    height: 40px;
+
+    .ticket-title {
+      font-weight: 400;
+      font-size: 1.1em;
+      align-self: center;
+      width: 145px;
+    }
+
+    &-categorycontainer {
+      display: flex;
+      column-gap: 5px;
+      align-items: center;
+
+      .ticket-category {
+        border-radius: 6px;
+        padding: 0 6px;
+        height: 20px;
+        text-align: center;
+  
+        span {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 10px;
+          line-height: 12px;
+          color: white;
+          text-transform: lowercase;
+          text-align: center;
+        }
+    
+        &--primary {
+          background: $primary;
+        }
+        &--secondary {
+          background: $secondary;
+        }
+        &--tertiary {
+          background: $tertiary;
+        }
+    
+        &::first-letter {
+          text-transform: capitalize;
+        }
+      }
+  
+      .ticket-status {
+        display: block;
+        width: 30px;
+        border: none;
+        background-color: white;
+      }
+
+    }
+
+    
+
+  }
+
+  &__description {
+    height: 60px;
+    overflow: hidden;
+
+    p.text-description {
+      font-size: 1em;
+      overflow-wrap: break-word;
+      font-weight: 300;
+      color: $dark;
+      text-overflow: ellipsis;
+    }
+    
+  }
+
+  &__footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 0;
+
+    &__user-infos {
+      display: flex;
+      column-gap: 10px;
+
+      .user-status {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 5px;
+
+        h4 {
+          font-size: .9em;
+          font-weight: 400;
+        }
+      }
+
+      .card-status {
+        border: solid 1px $primary;
+        border-radius: 3px;
+        color: $primary;
+        padding: 1px 6px;
+        font-size: .8em;
+        text-transform: uppercase;
+    
+        &--internal {
+          border: solid 1px $secondary;
+          color: $secondary;
+        }
+      }
+    }
+
+
+    &__idcontainer {
+      p.card-id {
+        font-size: .85em;
+        color: $dark;
+        display: flex;
+        
+        span {
+          color: black;
+          width: 100px;
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          padding-left: 5px;
+        }
+      }
+    }
+
+    
+  
+    
+  }
+  
+  &-OK {
+    box-shadow: 0px 0px 6px -1px rgba(47, 211, 41, 0.596);
+  }
+  &-FORWARD {
+    box-shadow: 0px 0px 6px -1px rgba(31, 203, 255, 0.815); 
+  }
+  &-WARNING {
+    box-shadow: 0px 0px 6px -1px rgba(255, 188, 5, 0.815);
+  }
+  &-DECLINE {
+    box-shadow: 0px 0px 6px -1px rgba(255, 31, 61, 0.815);
+  }
+
+}

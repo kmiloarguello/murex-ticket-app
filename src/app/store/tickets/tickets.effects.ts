@@ -4,7 +4,7 @@ import * as ticketsActions from './tickets.actions';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AppService } from "src/app/app.service";
-import { iTicketsList, Tickets } from "src/app/core/models/tickets.models";
+import { Tickets } from "src/app/core/models/tickets.models";
 
 @Injectable()
 export class TicketsEffects {

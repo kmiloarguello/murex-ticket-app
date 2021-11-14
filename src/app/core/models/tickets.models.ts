@@ -1,9 +1,3 @@
-export interface iTicketsList {
-    id : string;
-    name: string;
-    description: string;
-}
-
 export interface Tickets {
     tickets: Ticket[];
   }

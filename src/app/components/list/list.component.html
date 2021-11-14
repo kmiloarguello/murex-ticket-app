@@ -1,10 +1,4 @@
-<div>
-    Here there is a future list
-</div>
-<div class="list" *ngFor="let ticket of tickets">
-    <p [innerHTML]="ticket.id"></p>
-    <p [innerHTML]="ticket.user"></p>
-    <p [innerHTML]="ticket.title"></p>
-    <p [innerHTML]="ticket.status"></p>
+<div class="tickets-list-container">
+    <app-card *ngFor="let ticket of tickets" [ticket]="ticket"></app-card> 
 </div>
   

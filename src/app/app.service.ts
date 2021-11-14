@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { iTicketsList, Tickets } from './core/models/tickets.models';
+import { Tickets } from './core/models/tickets.models';
 
 @Injectable({
   providedIn: 'root'

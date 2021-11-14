@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { iTicketsList, Ticket } from 'src/app/core/models/tickets.models';
+import { Ticket } from 'src/app/core/models/tickets.models';
 
 export const requestTickets = createAction(
   '[CA] Request tickets'

@@ -1,2 +1,77 @@
-<p>tickets works!</p>
-<app-list [tickets]="tickets$ | async"></app-list>
+
+<nav class="header">
+    <div class="main-menu">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <h1 class="main-title">Murex Ticket App</h1>
+</nav>
+<section class="container">
+    <div class="side-bar"></div>
+    <div class="menu-container">
+        <div class="menu-container__sort-container">
+            <h5>Sort by</h5>
+            <hr />
+            <div class="sort-content">
+                <div class="sort">
+                    <input type="radio" id="huey" name="drone" value="huey"
+                           checked>
+                    <label for="huey">Huey</label>
+                  </div>
+                  
+                  <div class="sort">
+                    <input type="radio" id="dewey" name="drone" value="dewey">
+                    <label for="dewey">Dewey</label>
+                  </div>
+            </div>
+        </div>
+        <div class="menu-container__filter-container">
+            <h5>Filters</h5>
+            <hr />
+            <div class="category-container">
+                <span class="category-container-title">Category</span>
+                <select name="all" id="category-select">
+                    <option value="">All categories</option>
+                    <option value="blog">Blog</option>
+                    <option value="documentation">Documentation</option>
+                    <option value="library">Library</option>
+                </select>                
+            </div>
+            <div class="filter-status">
+                <span class="filter-status-title">Status</span>
+                <div class="input-filter">
+                    <div class="item-filter">
+                        <input type="checkbox" id="scales" name="scales" checked>
+                        <label for="scales">OK</label>
+                    </div>
+                      
+                    <div class="item-filter">
+                        <input type="checkbox" id="horns" name="horns">
+                        <label for="horns">Forward</label>
+                    </div>
+                </div>
+                <button class="btn underline-btn">Reset status</button>
+            </div>
+            <div class="filter-ext-int">
+                <span class="filter-ext-int-title">External / Internal</span>
+                <select name="pets" id="ext-int-select">
+                    <option value="">Both</option>
+                    <option value="external">External</option>
+                    <option value="internal">Internal</option>
+                </select> 
+            </div>
+        </div>
+    </div>
+    <div class="tickets-container">
+        <div class="tickets-container__content">
+            <div class="principal-content">
+                <span>Showing <strong>6</strong> tickets out of <strong>6</strong></span>
+                <a class="create-new-ticket" href="#">CREATE A NEW TICKET</a>
+            </div>
+            <hr />
+        </div>
+        <app-list [tickets]="tickets$ | async"></app-list>
+    </div>
+</section>
