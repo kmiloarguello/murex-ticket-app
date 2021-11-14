@@ -7,6 +7,7 @@
   padding: 20px;
   width: 310px;
   cursor: pointer;
+  transition: all ease-in-out 0.2s;
 
   &__header {
     display: flex;
@@ -103,7 +104,7 @@
         row-gap: 5px;
 
         h4 {
-          font-size: .9em;
+          font-size: .8em;
           font-weight: 400;
         }
       }
@@ -141,23 +142,36 @@
         }
       }
     }
-
-    
-  
-    
   }
   
   &-OK {
     box-shadow: 0px 0px 6px -1px rgba(47, 211, 41, 0.596);
+
+    &:hover {
+      box-shadow: 0px 0px 16px -1px rgba(47, 211, 41, 0.596);
+    }
   }
   &-FORWARD {
     box-shadow: 0px 0px 6px -1px rgba(31, 203, 255, 0.815); 
+    &:hover {
+      box-shadow: 0px 0px 16px -1px rgba(31, 203, 255, 0.815); 
+    }
   }
   &-WARNING {
     box-shadow: 0px 0px 6px -1px rgba(255, 188, 5, 0.815);
+    &:hover {
+      box-shadow: 0px 0px 16px -1px rgba(255, 188, 5, 0.815);
+    }
   }
   &-DECLINE {
     box-shadow: 0px 0px 6px -1px rgba(255, 31, 61, 0.815);
+    &:hover {
+      box-shadow: 0px 0px 16px -1px rgba(255, 31, 61, 0.815);
+    }
+  }
+
+  &.active {
+    background-color:rgba(109, 178, 199, 0.822); 
   }
 
 }
