@@ -46,6 +46,23 @@ export class TicketsEffects {
       )    
     );
 
+    filterListOfTicketsByAggregate$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(ticketsActions.filterListOfTicketsByAggregate),
+        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        switchMap(([{filters}, tickets]) => 
+          {
+            console.log("filtttt", filters)
+            return this._ticketsService.filterAggregatedTickets(filters, tickets).pipe(
+            map((res: Ticket[] ) => {
+              const tickets = res;
+              return ticketsActions.updateTickets({ tickets });
+            }),
+          )}
+        )
+      )    
+    );
+
     sortListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.sortListOfTickets),

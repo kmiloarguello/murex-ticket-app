@@ -1,0 +1,27 @@
+<div class="menu-container__filter-container">
+    <h5>Filters</h5>
+    <hr />
+    <div class="category-container">
+        <span class="category-container-title">Category</span>
+        <select name="all" id="category-select" (change)="filterByCategory($event)">
+            <option *ngFor="let filter of filterCategoryOptionList" [value]="filter.value">{{ filter.title }}</option>
+        </select>                
+    </div>
+    <div class="filter-status">
+        <span class="filter-status-title">Status</span>
+        <div class="input-filter">
+            <div *ngFor="let filter of filterStatusOptionList" class="item-filter">
+                <input type="checkbox" [id]="filter.id" name="filter-by" value="{{filter.value}}" [(ngModel)]="filter.checked" [checked]="filter.checked" (change)="filterByStatus($event)" />
+                <i class="material-icons">{{ filter.icon }}</i>
+                <label for="{{filter.id}}">{{ filter.title}}</label>
+            </div>
+        </div>
+        <button type="button" class="btn underline-btn" (click)="resetFilters()">Reset status</button>
+    </div>
+    <div class="filter-ext-int">
+        <span class="filter-ext-int-title">External / Internal</span>
+        <select name="both" id="ext-int-select" (change)="filterByExtIntStatus($event)">
+            <option *ngFor="let filter of filterExtIntOptionList" [value]="filter.value">{{ filter.title }}</option>
+        </select> 
+    </div>
+</div>
