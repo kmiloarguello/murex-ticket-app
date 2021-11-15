@@ -22,4 +22,12 @@ export class TicketsComponent implements OnInit {
     this._store.dispatch(ticketsActions.requestTickets());
   }
 
+  filterByCategory(event) {
+    this._store.dispatch(ticketsActions.filterListOfTickets({ filter: event.target.value, filtertype: "category" }));
+  }
+
+  filterByExtIntStatus(event) {
+    this._store.dispatch(ticketsActions.filterListOfTickets({ filter: event.target.value, filtertype: "internal" }));
+  }
+
 }

@@ -20,8 +20,8 @@
             <hr />
             <div class="category-container">
                 <span class="category-container-title">Category</span>
-                <select name="all" id="category-select">
-                    <option value="">All categories</option>
+                <select name="all" id="category-select" (change)="filterByCategory($event)">
+                    <option value="all">All categories</option>
                     <option value="blog">Blog</option>
                     <option value="documentation">Documentation</option>
                     <option value="library">Library</option>
@@ -44,10 +44,10 @@
             </div>
             <div class="filter-ext-int">
                 <span class="filter-ext-int-title">External / Internal</span>
-                <select name="both" id="ext-int-select">
-                    <option value="">Both</option>
-                    <option value="external">External</option>
-                    <option value="internal">Internal</option>
+                <select name="both" id="ext-int-select" (change)="filterByExtIntStatus($event)">
+                    <option value="all">Both</option>
+                    <option value="false">External</option>
+                    <option value="true">Internal</option>
                 </select> 
             </div>
         </div>

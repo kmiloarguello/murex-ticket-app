@@ -16,6 +16,8 @@ const _ticketsReducer = createReducer(
     on(TicketsActions.requestTickets, state => ({ ...state, isLoading: true })),
     on(TicketsActions.successTickets, (state , { tickets }) => ({ ...state, isLoading: false, tickets })),
     on(TicketsActions.errorTickets, (state, {error}) => ({ ...state, error: error.message, isLoading: false })),
+    on(TicketsActions.filterListOfTickets, (state) => ({ ...state })),
+    on(TicketsActions.updateTickets, (state , { tickets }) => ({ ...state, tickets })),
   );
 
 

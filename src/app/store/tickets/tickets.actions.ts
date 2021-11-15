@@ -15,3 +15,12 @@ export const errorTickets = createAction(
     props<{ error: Error }>()
 )
 
+export const filterListOfTickets = createAction(
+  '[Tickets] Filtering tickets',
+  props<{ filter: string, filtertype: string }>()
+)
+
+export const updateTickets = createAction(
+  '[Tickets] Updating tickets',
+  props<{ tickets: Ticket[] }>()
+)
