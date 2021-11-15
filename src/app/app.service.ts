@@ -14,14 +14,21 @@ export class AppService {
   }
 
   public filterTickets(filter: string, tickets: Ticket[], filtertype: string = "category"): Observable<Ticket[]> {
-    console.log("the filter was",filter);
-
     let updateTickets: Ticket[] = tickets;
-
-    console.log(updateTickets)
-
     let _updateTickets = updateTickets.filter((ticket) => new RegExp(filter,"ig").test(ticket[filtertype]));
 
     return of(_updateTickets);
+  }
+  public sortTickets(sort: string, tickets: Ticket[]): Observable<Ticket[]> {
+    let updateTickets: Ticket[] = tickets;
+
+    console.log("sorting by " + sort + " ...");
+
+    let _presorted = updateTickets.slice(0);
+    let sortedTickets = _presorted.sort((a,b) => (a[sort] < b[sort] ? -1 : 1));
+    
+    console.log("sorted")
+
+    return of(sortedTickets)
   }
 }

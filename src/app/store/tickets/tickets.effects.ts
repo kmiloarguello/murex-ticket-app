@@ -46,6 +46,21 @@ export class TicketsEffects {
       )    
     );
 
+    sortListOfTickets$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(ticketsActions.sortListOfTickets),
+        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        switchMap(([{ sort }, tickets]) => 
+          this._ticketsService.sortTickets(sort, tickets).pipe(
+            map((res: Ticket[] ) => {
+              const tickets = res;
+              return ticketsActions.updateTickets({ tickets });
+            }),
+          )
+        )
+      )    
+    );
+
 
 }
 

@@ -1,0 +1,13 @@
+<div class="menu-container__sort-container">
+    <h5>Sort by</h5>
+    <hr />
+    <div class="sort-content">
+        <form>
+            <div *ngFor="let sort of sortOptionList" class="sort">
+                <input type="radio" [id]="sort.id" name="sort-by" value="{{sort.value}}" (change)="sortTicketsBy($event)" />
+                <label for="{{sort.id}}">{{ sort.title}}</label>
+            </div>
+        </form>
+    </div>
+</div>
+

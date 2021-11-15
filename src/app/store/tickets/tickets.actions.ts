@@ -8,19 +8,24 @@ export const requestTickets = createAction(
 export const successTickets = createAction(
     '[CA] Success tickets',
     props<{ tickets: Ticket[] }>()
-)
+);
 
 export const errorTickets = createAction(
     '[CA] Error tickets',
     props<{ error: Error }>()
-)
+);
 
 export const filterListOfTickets = createAction(
   '[Tickets] Filtering tickets',
   props<{ filter: string, filtertype: string }>()
-)
+);
+
+export const sortListOfTickets = createAction(
+  '[Tickets] Sorting tickets',
+  props<{ sort: string }>()
+);
 
 export const updateTickets = createAction(
   '[Tickets] Updating tickets',
   props<{ tickets: Ticket[] }>()
-)
+);
