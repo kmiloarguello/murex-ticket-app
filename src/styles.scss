@@ -21,3 +21,32 @@ hr {
   margin: 0 10px;
   height: .1px;
 }
+
+.btn {
+  cursor: pointer;
+  outline: none;
+
+  &.blue-button {
+      background-color: $secondary;
+      color: white;
+      text-transform: uppercase;
+      font-size: 1em;
+      font-weight: 400;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+  }
+
+
+  &.underline-btn {
+      display: block;
+      margin: 10px 0;
+      font-size: 1em;
+      text-decoration: underline;
+      color: $secondary;
+      border: none;
+      background-color: transparent;
+  }
+
+}

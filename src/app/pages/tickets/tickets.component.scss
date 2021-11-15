@@ -121,16 +121,7 @@
                     color: $tertiary;
                 }
 
-                a.create-new-ticket {
-                    background-color: $secondary;
-                    color: white;
-                    text-transform: uppercase;
-                    font-size: 1em;
-                    font-weight: 400;
-                    text-decoration: none;
-                    padding: 10px;
-                    border-radius: 10px;
-                }
+                
             }
 
             hr {
@@ -140,18 +131,4 @@
         }
 
     }
-}
-
-.btn {
-    cursor: pointer;
-}
-
-.underline-btn {
-    display: block;
-    margin: 10px 0;
-    font-size: 1em;
-    text-decoration: underline;
-    color: $secondary;
-    border: none;
-    background-color: transparent;
 }

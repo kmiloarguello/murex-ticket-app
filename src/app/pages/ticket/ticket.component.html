@@ -1,1 +1,64 @@
-<p>ticket works!</p>
+<section class="container">
+    <div class="container-maintitle">
+        <h2>Create a new ticket</h2>
+    </div>
+    <hr />
+    <div class="ticket">
+        <div class="ticket__header">
+            <h3>Ticket ID: <span>654654-5454</span></h3>
+            <button class="btn blue-button confirm">Confirm</button>
+            
+        </div>
+        <hr />
+        <div class="ticket__content">
+            <form class="ticket__content--form">
+                <div class="ticket__content__left">
+                    <div class="item-form">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+                    <div class="item-form">
+                        <label for="description">Description</label>
+                        <textarea name="description" cols="40" rows="5"></textarea>
+                    </div>
+                    <div class="item-form">
+                        <label for="category">Category</label>
+                        <select name="all" id="category-select">
+                            <option value="">Select</option>
+                            <option value="blog">Blog</option>
+                            <option value="documentation">Documentation</option>
+                            <option value="library">Library</option>
+                        </select>  
+                    </div>
+                    <div class="item-form">
+                        <label for="status">Status</label>
+                        <select name="both" id="ext-int-select">
+                            <option value="">Both</option>
+                            <option value="external">External</option>
+                            <option value="internal">Internal</option>
+                        </select> 
+                    </div>
+                </div>
+                <div class="ticket__content__right">
+                    <div class="item-form">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+                    <div class="item-form">
+                        <label for="i-am">I am</label>
+                        <div class="status-ext-int">
+                            <input type="radio" id="huey" name="drone" value="huey"
+                                   checked>
+                            <label for="huey">External</label>
+                          </div>
+                          
+                          <div class="status-ext-int">
+                            <input type="radio" id="dewey" name="drone" value="dewey">
+                            <label for="dewey">Internal</label>
+                          </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
