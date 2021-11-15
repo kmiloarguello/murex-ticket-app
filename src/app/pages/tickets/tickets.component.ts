@@ -13,9 +13,11 @@ import * as ticketsSelectors from '../../store/tickets/tickets.selectors';
 export class TicketsComponent implements OnInit {
 
   public tickets$: Observable<Ticket[]>;
+  public ticketsOriginal$: Observable<Ticket[]>;
 
   constructor(private _store: Store) {
     this.tickets$ = this._store.select(ticketsSelectors.selectTickets);
+    this.ticketsOriginal$ = this._store.select(ticketsSelectors.selectOriginalTickets);
   }
 
   ngOnInit(): void { 

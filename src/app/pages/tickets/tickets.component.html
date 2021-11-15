@@ -6,7 +6,7 @@
     <div class="tickets-container">
         <div class="tickets-container__content">
             <div class="principal-content">
-                <span>Showing <strong>6</strong> tickets out of <strong>6</strong></span>
+                <span>Showing <strong>{{ (tickets$ | async)?.length }}</strong> tickets out of <strong>{{ (ticketsOriginal$ | async)?.length }}</strong></span>
                 <a class="btn blue-button create-new-ticket" href="#">CREATE A NEW TICKET</a>
             </div>
             <hr />

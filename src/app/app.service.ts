@@ -26,7 +26,7 @@ export class AppService {
   public filterAggregatedTickets (filters: string[], tickets: Ticket[]): Observable<Ticket[]> {
     let updateTickets: Ticket[] = tickets;
 
-    if ( filters.length == 0) return;
+    if ( filters.length == 0) return of(updateTickets);
 
     let filteredTickets: Ticket[] = [];
 
@@ -36,7 +36,6 @@ export class AppService {
         filteredTickets.push(status);
       });
     });
-
 
     return of(filteredTickets);
   }
