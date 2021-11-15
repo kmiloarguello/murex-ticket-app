@@ -1,42 +1,7 @@
 <section class="container">
     <div class="menu-container">
         <app-sort-card></app-sort-card>
-        <div class="menu-container__filter-container">
-            <h5>Filters</h5>
-            <hr />
-            <div class="category-container">
-                <span class="category-container-title">Category</span>
-                <select name="all" id="category-select" (change)="filterByCategory($event)">
-                    <option value="all">All categories</option>
-                    <option value="blog">Blog</option>
-                    <option value="documentation">Documentation</option>
-                    <option value="library">Library</option>
-                </select>                
-            </div>
-            <div class="filter-status">
-                <span class="filter-status-title">Status</span>
-                <div class="input-filter">
-                    <div class="item-filter">
-                        <input type="checkbox" id="scales" name="scales" checked>
-                        <label for="scales">OK</label>
-                    </div>
-                      
-                    <div class="item-filter">
-                        <input type="checkbox" id="horns" name="horns">
-                        <label for="horns">Forward</label>
-                    </div>
-                </div>
-                <button class="btn underline-btn">Reset status</button>
-            </div>
-            <div class="filter-ext-int">
-                <span class="filter-ext-int-title">External / Internal</span>
-                <select name="both" id="ext-int-select" (change)="filterByExtIntStatus($event)">
-                    <option value="all">Both</option>
-                    <option value="false">External</option>
-                    <option value="true">Internal</option>
-                </select> 
-            </div>
-        </div>
+        <app-filter-card></app-filter-card>
     </div>
     <div class="tickets-container">
         <div class="tickets-container__content">

@@ -1,5 +1,4 @@
 import { Component,Input, OnInit } from '@angular/core';
-import { Ticket } from 'src/app/core/models/tickets.models';
 import { Store } from '@ngrx/store';
 import * as ticketsActions from '../../store/tickets/tickets.actions';
 

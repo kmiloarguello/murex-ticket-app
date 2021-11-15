@@ -19,6 +19,30 @@ export class AppService {
 
     return of(_updateTickets);
   }
+
+
+
+
+  public filterAggregatedTickets (filters: string[], tickets: Ticket[]): Observable<Ticket[]> {
+    let updateTickets: Ticket[] = tickets;
+
+    if ( filters.length == 0) return;
+
+    let filteredTickets: Ticket[] = [];
+
+    filters.map((filter) => {
+      let ticketsByStatus = updateTickets.filter((ticket) => new RegExp(filter,"ig").test(ticket.status))
+      ticketsByStatus.map((status) => filteredTickets.push(status))
+    });
+
+    return of(filteredTickets);
+  }
+
+
+
+
+
+
   public sortTickets(sort: string, tickets: Ticket[]): Observable<Ticket[]> {
     let updateTickets: Ticket[] = tickets;
 

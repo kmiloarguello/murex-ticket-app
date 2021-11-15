@@ -20,10 +20,20 @@ export const filterListOfTickets = createAction(
   props<{ filter: string, filtertype: string }>()
 );
 
+export const filterListOfTicketsByAggregate = createAction(
+  '[Tickets] Filtering by aggregation',
+  props<{ filters: string[] }>()
+)
+
 export const sortListOfTickets = createAction(
   '[Tickets] Sorting tickets',
   props<{ sort: string }>()
 );
+
+export const createANewTicket = createAction(
+  '[Tickets] Creating ticket',
+  props<{ ticket: Ticket[] }>()
+)
 
 export const updateTickets = createAction(
   '[Tickets] Updating tickets',

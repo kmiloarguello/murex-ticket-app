@@ -18,6 +18,7 @@ const _ticketsReducer = createReducer(
     on(TicketsActions.errorTickets, (state, {error}) => ({ ...state, error: error.message, isLoading: false })),
     on(TicketsActions.filterListOfTickets, (state) => ({ ...state })),
     on(TicketsActions.sortListOfTickets, (state) => ({ ...state })),
+    on(TicketsActions.filterListOfTicketsByAggregate, (state) => ({ ...state })),
     on(TicketsActions.updateTickets, (state , { tickets }) => ({ ...state, tickets })),
   );
 
