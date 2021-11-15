@@ -30,6 +30,11 @@ export const sortListOfTickets = createAction(
   props<{ sort: string }>()
 );
 
+export const createANewTicket = createAction(
+  '[Tickets] Creating ticket',
+  props<{ ticket: Ticket[] }>()
+)
+
 export const updateTickets = createAction(
   '[Tickets] Updating tickets',
   props<{ tickets: Ticket[] }>()
