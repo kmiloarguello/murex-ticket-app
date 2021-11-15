@@ -6,4 +6,5 @@ export interface TicketState {
     tickets: Ticket[];
     isLoading: boolean;
     error: any;
+    originalTickets: Ticket[];
 }

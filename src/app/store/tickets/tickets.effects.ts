@@ -20,6 +20,7 @@ export class TicketsEffects {
           this._ticketsService.getTickets().pipe(
             map((res: Tickets) => {
               const { tickets } = res;
+              this._store.dispatch(ticketsActions.setOriginalTicket({ originalTickets: tickets }));
               return ticketsActions.successTickets({ tickets });
             }),
             catchError((error) => {
@@ -34,7 +35,7 @@ export class TicketsEffects {
     filterListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.filterListOfTickets),
-        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{filter, filtertype}, tickets]) => 
           this._ticketsService.filterTickets(filter, tickets, filtertype).pipe(
             map((res: Ticket[] ) => {
@@ -49,10 +50,10 @@ export class TicketsEffects {
     filterListOfTicketsByAggregate$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.filterListOfTicketsByAggregate),
-        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{filters}, tickets]) => 
           {
-            console.log("filtttt", filters)
+            //console.log("filtttt", filters, tickets)
             return this._ticketsService.filterAggregatedTickets(filters, tickets).pipe(
             map((res: Ticket[] ) => {
               const tickets = res;
@@ -66,7 +67,7 @@ export class TicketsEffects {
     sortListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.sortListOfTickets),
-        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{ sort }, tickets]) => 
           this._ticketsService.sortTickets(sort, tickets).pipe(
             map((res: Ticket[] ) => {

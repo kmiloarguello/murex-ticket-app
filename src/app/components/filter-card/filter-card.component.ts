@@ -39,34 +39,41 @@ export class FilterCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  filterByCategory(event) {
-    this._store.dispatch(ticketsActions.filterListOfTickets({ filter: event.target.value, filtertype: "category" }));
+  filterBySelect(event, filterType: string = "category") {
+
+    if (event.target.value !== "all") {
+      return this._store.dispatch(ticketsActions.filterListOfTickets({ filter: event.target.value, filtertype: filterType }));
+    }
+
+    this._store.dispatch(ticketsActions.requestTickets());
+
   }
 
-  filterByExtIntStatus(event) {
-    this._store.dispatch(ticketsActions.filterListOfTickets({ filter: event.target.value, filtertype: "internal" }));
-  }
 
   filterByStatus(event) {
     if (event.target.checked) {
-      this._checkedStatus.push(event.target.value);
 
+      this._checkedStatus = [...this._checkedStatus, event.target.value];
+      
+      // Testing -> checkbox
+      
       for(let i=0; i<this.filterStatusOptionList.length; i++) {
         if (this.filterStatusOptionList[i].value == event.target.value) {
           this.filterStatusOptionList[i].checked = true;
         }
       }
+      
 
     } else {
       this._checkedStatus = this._checkedStatus.filter((filter) => filter !== event.target.value);
     }
-
+    
     this._store.dispatch(ticketsActions.filterListOfTicketsByAggregate({ filters: this._checkedStatus })); 
   }
 
   resetFilters() {
     this._store.dispatch(ticketsActions.requestTickets());
-    console.log("reset")
+
     for(let i=0; i<this.filterStatusOptionList.length; i++) {
       this.filterStatusOptionList[i].checked = false;
     }

@@ -5,6 +5,11 @@ export const requestTickets = createAction(
   '[CA] Request tickets'
 );
 
+export const setOriginalTicket = createAction(
+  '[Ticket] Getting original ticket',
+  props<{ originalTickets: Ticket[] }>()
+)
+
 export const successTickets = createAction(
     '[CA] Success tickets',
     props<{ tickets: Ticket[] }>()

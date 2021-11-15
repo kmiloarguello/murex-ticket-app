@@ -31,9 +31,12 @@ export class AppService {
     let filteredTickets: Ticket[] = [];
 
     filters.map((filter) => {
-      let ticketsByStatus = updateTickets.filter((ticket) => new RegExp(filter,"ig").test(ticket.status))
-      ticketsByStatus.map((status) => filteredTickets.push(status))
+      let ticketsByStatus = updateTickets.filter((ticket) => filter === ticket.status) // 
+      ticketsByStatus.map((status) => {
+        filteredTickets.push(status);
+      });
     });
+
 
     return of(filteredTickets);
   }
