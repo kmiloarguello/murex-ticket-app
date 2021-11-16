@@ -13,6 +13,7 @@ export class AppService {
     return this.http.get<Tickets>('assets/tickets.json');
   }
 
+
   public filterTickets(filter: string, tickets: Ticket[], filtertype: string = "category"): Observable<Ticket[]> {
     let updateTickets: Ticket[] = tickets;
     let _updateTickets = updateTickets.filter((ticket) => new RegExp(filter,"ig").test(ticket[filtertype]));
@@ -26,13 +27,15 @@ export class AppService {
   public filterAggregatedTickets (filters: string[], tickets: Ticket[]): Observable<Ticket[]> {
     let updateTickets: Ticket[] = tickets;
 
-    if ( filters.length == 0) return;
+    if ( filters.length == 0) return of(updateTickets);
 
     let filteredTickets: Ticket[] = [];
 
     filters.map((filter) => {
-      let ticketsByStatus = updateTickets.filter((ticket) => new RegExp(filter,"ig").test(ticket.status))
-      ticketsByStatus.map((status) => filteredTickets.push(status))
+      let ticketsByStatus = updateTickets.filter((ticket) => filter === ticket.status) // 
+      ticketsByStatus.map((status) => {
+        filteredTickets.push(status);
+      });
     });
 
     return of(filteredTickets);
@@ -55,4 +58,5 @@ export class AppService {
 
     return of(sortedTickets)
   }
+
 }

@@ -6,11 +6,28 @@
     <div class="tickets-container">
         <div class="tickets-container__content">
             <div class="principal-content">
-                <span>Showing <strong>6</strong> tickets out of <strong>6</strong></span>
-                <a class="btn blue-button create-new-ticket" href="#">CREATE A NEW TICKET</a>
+                <span>Showing <strong>{{ (tickets$ | async)?.length }}</strong> tickets out of <strong>{{ (ticketsOriginal$ | async)?.length }}</strong></span>
+                
+                <div class="main-buttons-container">
+                    <a *ngIf="!cardIsActivated" class="btn blue-button create-new-ticket" routerLink="/ticket">CREATE A NEW TICKET</a>
+                    <a *ngIf="cardIsActivated" class="btn gray-button edit-ticket" [ngClass]="currentTicketID" (click)="editTicket(currentTicketID)">EDIT TICKET</a>
+                    <button type="button" *ngIf="cardIsActivated" class="btn red-button delete-ticket" [ngClass]="currentTicketID" (click)="askForDeletingTicket(currentTicketID)" >DELETE TICKET</button>    
+                </div>
+                
             </div>
             <hr />
         </div>
         <app-list [tickets]="tickets$ | async"></app-list>
     </div>
 </section>
+
+<div *ngIf="activePopupDelete" class="confirmation-delete-ticket">
+    <button type="button" class="close-confirmation" (click)="cancelDeleteTicket()"><i class="material-icons">close</i></button>
+    <div class="confirmation-delete-ticket__content">
+        <span>Do you want to remove the ticket <code>{{currentTicketID}}</code></span>
+    </div>
+    <div class="confirmation-delete-ticket__buttons">
+        <button type="button" class="btn red-button confirm-delete" (click)="confirmDeleteTicket(currentTicketID)">Delete</button>
+        <button type="button" class="btn blue-button cancel-delete" (click)="cancelDeleteTicket()">Cancel</button>
+    </div>
+</div>

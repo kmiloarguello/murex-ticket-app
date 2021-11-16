@@ -68,6 +68,10 @@
     
     }
 
+    .main-logo-text {
+        text-decoration: none;
+    }
+
     .main-title {
         font-size: 2em;
         font-weight: 400;
@@ -82,5 +86,10 @@
     width: 60px;
     height: 100vh;
     background-color: $tertiary;
+
+    @media screen and (max-width: 768px) {
+        height: auto;
+        width: 0;
+    }
 }
 

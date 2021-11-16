@@ -13,17 +13,19 @@ import * as ticketsSelectors from '../../store/tickets/tickets.selectors';
 export class TicketsEffects {
     constructor(private actions$: Actions, private _ticketsService: AppService, private _store: Store) {}
 
+    // Getting the tickets 
     requestTickets$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.requestTickets),
+        ofType(ticketsActions.aRequestTickets),
         switchMap((_) => 
           this._ticketsService.getTickets().pipe(
             map((res: Tickets) => {
               const { tickets } = res;
-              return ticketsActions.successTickets({ tickets });
+              this._store.dispatch(ticketsActions.aSetOriginalTickets({ originalTickets: tickets }));
+              return ticketsActions.aSuccessTickets({ tickets });
             }),
             catchError((error) => {
-              return of(ticketsActions.errorTickets({ error }));
+              return of(ticketsActions.aErrorTickets({ error }));
             })
           )
         )
@@ -31,53 +33,54 @@ export class TicketsEffects {
     );
 
 
+    // Filtering by category or internal
     filterListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.filterListOfTickets),
-        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        ofType(ticketsActions.aFilterListOfTickets),
+        withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{filter, filtertype}, tickets]) => 
           this._ticketsService.filterTickets(filter, tickets, filtertype).pipe(
             map((res: Ticket[] ) => {
               const tickets = res;
-              return ticketsActions.updateTickets({ tickets });
+              return ticketsActions.aUpdateTickets({ tickets });
             }),
           )
         )
       )    
     );
 
+
+    // Filtering by multiple status filter
     filterListOfTicketsByAggregate$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.filterListOfTicketsByAggregate),
-        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        ofType(ticketsActions.aFilterListOfTicketsByAggregate),
+        withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{filters}, tickets]) => 
           {
-            console.log("filtttt", filters)
             return this._ticketsService.filterAggregatedTickets(filters, tickets).pipe(
             map((res: Ticket[] ) => {
               const tickets = res;
-              return ticketsActions.updateTickets({ tickets });
+              return ticketsActions.aUpdateTickets({ tickets });
             }),
           )}
         )
       )    
     );
 
+    // Sort the tickets
     sortListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.sortListOfTickets),
-        withLatestFrom(this._store.select(ticketsSelectors.selectTickets)),
+        ofType(ticketsActions.aSortListOfTickets),
+        withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{ sort }, tickets]) => 
           this._ticketsService.sortTickets(sort, tickets).pipe(
             map((res: Ticket[] ) => {
               const tickets = res;
-              return ticketsActions.updateTickets({ tickets });
+              return ticketsActions.aUpdateTickets({ tickets });
             }),
           )
         )
       )    
     );
-
-
 }
 

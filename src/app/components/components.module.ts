@@ -4,13 +4,11 @@ import { CardComponent } from './card/card.component';
 import { ListComponent } from './list/list.component';
 import { SortCardComponent } from './sort-card/sort-card.component';
 import { FilterCardComponent } from './filter-card/filter-card.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CardComponent, ListComponent, SortCardComponent, FilterCardComponent],
   imports: [
-    CommonModule,
-    FormsModule
+    CommonModule
   ],
   exports: [CardComponent, ListComponent, SortCardComponent, FilterCardComponent]
 })

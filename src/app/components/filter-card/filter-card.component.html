@@ -3,7 +3,7 @@
     <hr />
     <div class="category-container">
         <span class="category-container-title">Category</span>
-        <select name="all" id="category-select" (change)="filterByCategory($event)">
+        <select name="all" id="category-select" (change)="filterBySelect($event)">
             <option *ngFor="let filter of filterCategoryOptionList" [value]="filter.value">{{ filter.title }}</option>
         </select>                
     </div>
@@ -20,7 +20,7 @@
     </div>
     <div class="filter-ext-int">
         <span class="filter-ext-int-title">External / Internal</span>
-        <select name="both" id="ext-int-select" (change)="filterByExtIntStatus($event)">
+        <select name="both" id="ext-int-select" (change)="filterBySelect($event,'internal')">
             <option *ngFor="let filter of filterExtIntOptionList" [value]="filter.value">{{ filter.title }}</option>
         </select> 
     </div>
