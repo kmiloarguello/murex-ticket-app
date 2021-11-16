@@ -13,6 +13,7 @@ import * as ticketsSelectors from '../../store/tickets/tickets.selectors';
 export class TicketsEffects {
     constructor(private actions$: Actions, private _ticketsService: AppService, private _store: Store) {}
 
+    // Getting the tickets 
     requestTickets$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.aRequestTickets),
@@ -32,6 +33,7 @@ export class TicketsEffects {
     );
 
 
+    // Filtering by category or internal
     filterListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.aFilterListOfTickets),
@@ -47,6 +49,8 @@ export class TicketsEffects {
       )    
     );
 
+
+    // Filtering by multiple status filter
     filterListOfTicketsByAggregate$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.aFilterListOfTicketsByAggregate),
@@ -63,6 +67,7 @@ export class TicketsEffects {
       )    
     );
 
+    // Sort the tickets
     sortListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
         ofType(ticketsActions.aSortListOfTickets),

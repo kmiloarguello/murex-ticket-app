@@ -10,6 +10,7 @@ import * as ticketsActions from '../../store/tickets/tickets.actions';
 })
 export class SortCardComponent implements OnInit {
 
+  // Information for Sorting DOM
   sortOptionList: any = [
     { id: "sort-by-title", value: "title", title:"Title", checked: true },
     { id: "sort-by-category", value: "category" , title:"Category", checked: false },
@@ -21,6 +22,10 @@ export class SortCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * @description This function triggers a dispatch to sort the tickets in the global store
+   * @param event onclick
+   */
   sortTicketsBy (event) {
     this._store.dispatch(ticketsActions.aSortListOfTickets({ sort: event.target.value }))    
   }

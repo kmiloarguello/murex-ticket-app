@@ -3,10 +3,10 @@
 import { Ticket } from "src/app/core/models/tickets.models";
 
 export interface TicketState {
-    tickets: Ticket[];
-    isLoading: boolean;
+    tickets: Ticket[]; // Array of tickets
+    isLoading: boolean; // Helper
     error: any;
-    originalTickets: Ticket[];
-    currentTicket: Ticket;
+    originalTickets: Ticket[]; // Array of tickets without modifications when filtering or sort
+    currentTicket: Ticket; 
     currentTicketID: string;
 }
