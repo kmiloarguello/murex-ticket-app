@@ -7,6 +7,16 @@
     margin-left: 60px;
     margin-top: 64px;
 
+    @media screen and (min-width: 769px) and (max-width: 1224px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin-left: auto;
+    }
+
     .menu-container {
         padding: 30px;
         display: flex;
@@ -36,7 +46,7 @@
                     column-gap: 5px;
                     flex-direction: row;
                 }
-                
+
             }
 
             hr {
@@ -45,5 +55,71 @@
             
         }
 
+    }
+}
+
+.confirmation-delete-ticket {
+    position: fixed;
+    top: 25%;
+    right: 10%;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 16px -1px rgba(31, 31, 31, .8);
+    transition: all ease-in-out .3s;
+
+    button.close-confirmation {
+        background-color: $darker;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        
+        i {
+            color: white;
+        }
+
+        &:hover {
+            background-color: white;
+            border: 1px solid $darker;
+
+            i {
+                color: $darker;
+            }
+        }
+    }
+
+    &__content {
+        margin: 10px auto;
+        span {
+            display: block;
+            text-align: center;
+            font-size: 1em;
+            font-weight: 300;
+            color: $dark;
+
+            code {
+                font-size: .9em;
+                font-weight: 400;
+                color: $darker;
+                display: block;
+                background: rgba(0,0,0,.1);
+                padding: 5px;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    &__buttons {
+        margin: 5px auto;
+        display: flex;
+        flex-direction: row;
+        column-gap: 5px;
+        justify-content: center;
     }
 }

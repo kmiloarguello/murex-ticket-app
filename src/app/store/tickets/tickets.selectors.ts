@@ -17,3 +17,8 @@ export const selectCurrentTicketID = createSelector(
     getTicketsFeatureState,
     (state: TicketState) => state.currentTicketID
 )
+
+export const selectCurrentTicket = createSelector (
+    getTicketsFeatureState,
+    (state: TicketState) => state.currentTicket
+)

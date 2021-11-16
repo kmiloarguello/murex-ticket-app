@@ -1,4 +1,4 @@
-<div class="ticket" [attr.data-status]="ticket?.status" [ngClass]="'ticket-' + ticket?.status" [ngClass]="isCardActive ? 'active': ''" (click)="selectCard($event,ticket?.id)" >
+<div class="ticket" [attr.data-status]="ticket?.status" [ngClass]="[isCardActive ? 'active' : '', 'ticket-'+ticket?.status]" (click)="selectCard($event,ticket?.id)" >
     <div class="ticket__header">
       <h3 class="ticket-title">{{ ticket?.title  }}</h3>
       <div class=ticket__header-categorycontainer>

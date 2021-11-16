@@ -42,11 +42,11 @@ export const aCreateANewTicket = createAction(
 
 export const aEditTicket = createAction(
   '[Tickets] Edit Ticket',
-  props<{ticket: Ticket, index: number}>()
+  props<{ticket: Ticket, id: string}>()
 )
 
 export const aDeleteTicket = createAction(
-  '[Tickets] Edit Ticket',
+  '[Tickets] Delete Ticket',
   props<{id: string}>()
 )
 
@@ -59,3 +59,8 @@ export const aUpdateTickets = createAction(
   '[Tickets] Updating tickets',
   props<{ tickets: Ticket[] }>()
 );
+
+export const aGoToTicket = createAction(
+  '[Tickets] go to tickets',
+  props<{ path: any[], queryParams?: object }>()
+)

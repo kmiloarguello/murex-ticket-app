@@ -20,7 +20,7 @@
         box-shadow: 0px 0px 16px -1px rgba(255, 126, 0, 0.2);
         border-radius: 10px;
         padding: 20px;
-        width: 700px;
+        width: 800px;
         cursor: pointer;
         transition: all ease-in-out 0.2s;
         margin: 20px;
@@ -35,10 +35,15 @@
                 color: $darker;
                 font-weight: 400;
 
-                span {
+                code {
+                    font-size: 1em;
+                    font-weight: 400;
                     color: $dark;
+                    background: rgba(0,0,0,.1);
+                    padding: 5px;
+                    border-radius: 5px;
                 }
-            }
+            }  
         }
         hr {
             margin: 10px 0;
@@ -63,10 +68,11 @@
             }
 
             .item-form {
+                position: relative;
                 display: flex;
                 flex-direction: column;
                 width: 80%;
-                margin: 10px auto;
+                margin: 20px auto;
 
                 label {
                     padding: 5px 0;
@@ -77,6 +83,7 @@
                 select,
                 textarea {
                     padding: 5px;
+                    position: relative;
                 }
 
                 textarea {
@@ -91,6 +98,35 @@
                     label {
                         cursor: pointer;
                     }
+                }
+            }
+        }
+
+        form.ticket__content--form {
+            &.ng-invalid.ng-submitted {
+                input,
+                select,
+                textarea {
+                    &.ng-invalid {
+                        border-color: $primary;
+                    }
+                }
+
+                .item-form {
+                    &::after {
+                        content: "Mandatory field";
+                        font-family: "Roboto", sans-serif;
+                        font-size: 12px;
+                        color: $primary;
+                        position: absolute;
+                        bottom: -15px;
+                        left: 0;
+                    }
+                }
+            }
+            &.ng-touched {
+                .item-form::after {
+                    content: content !important;
                 }
             }
         }

@@ -6,7 +6,7 @@
     <div class="ticket">
         <form [formGroup]="form" class="ticket__content--form" (ngSubmit)="onSubmit()">
             <div class="ticket__header">
-                <h3>Ticket ID: <span>654654-5454</span></h3>
+                <h3>Ticket ID: <code>{{currentTicketID}}</code></h3>
                 <button type="submit" class="btn blue-button confirm">Confirm</button>
             </div>
             <hr />
@@ -15,7 +15,7 @@
                     <div class="ticket__content__left">
                         <div class="item-form">
                             <label for="title">Title</label>
-                            <input formControlName="title" type="text" name="title" id="title" required>
+                            <input formControlName="title" type="text" name="title" id="title">
                         </div>
                         <div class="item-form">
                             <label for="description">Description</label>
@@ -23,16 +23,16 @@
                         </div>
                         <div class="item-form">
                             <label for="category">Category</label>
-                            <select formControlName="category"  name="all" id="category-select">
+                            <select formControlName="category" name="category" id="category-select">
                                 <option value="">Select</option>
-                                <option value="blog">Blog</option>
-                                <option value="documentation">Documentation</option>
-                                <option value="library">Library</option>
+                                <option value="BLOG">Blog</option>
+                                <option value="DOCUMENTATION">Documentation</option>
+                                <option value="LIBRARY">Library</option>
                             </select>  
                         </div>
                         <div class="item-form">
                             <label for="status">Status</label>
-                            <select formControlName="status" name="both" id="status-select">
+                            <select formControlName="status" name="status" id="status-select">
                                 <option value="">Select</option>
                                 <option value="OK">OK</option>
                                 <option value="FORWARD">Forward</option>
@@ -44,18 +44,17 @@
                     <div class="ticket__content__right">
                         <div class="item-form">
                             <label for="title">My name</label>
-                            <input formControlName="fullname" type="text" name="title" id="title" required>
+                            <input formControlName="user" type="text" name="user" id="title">
                         </div>
                         <div class="item-form">
                             <label for="i-am">I am</label>
                             <div class="status-ext-int">
-                                <input formControlName="internal"  type="radio" name="internal" value="false"
-                                    checked>
+                                <input formControlName="internal"  type="radio" name="internal" [value]="false" [checked]="!isInternal">
                                 <label for="false">External</label>
                             </div>
                             
                             <div class="status-ext-int">
-                                <input formControlName="internal" type="radio" name="internal" value="true">
+                                <input formControlName="internal" type="radio" name="internal" [value]="true" [checked]="isInternal">
                                 <label for="true">Internal</label>
                             </div>
                         </div>

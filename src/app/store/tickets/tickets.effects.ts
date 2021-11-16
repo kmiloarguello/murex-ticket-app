@@ -77,16 +77,5 @@ export class TicketsEffects {
         )
       )    
     );
-
-    /*
-    setCurrentTicket$ = createEffect(() => this.actions$.pipe(
-      ofType(ticketsActions.aSelectTicket),
-      withLatestFrom(this._store.select(ticketsSelectors.selectCurrentTicket)),
-      switchMap(([{id}]) => {
-        return this.
-      })
-    ))*/
-
-
 }
 
