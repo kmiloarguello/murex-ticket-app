@@ -13,6 +13,7 @@ export class AppService {
     return this.http.get<Tickets>('assets/tickets.json');
   }
 
+
   public filterTickets(filter: string, tickets: Ticket[], filtertype: string = "category"): Observable<Ticket[]> {
     let updateTickets: Ticket[] = tickets;
     let _updateTickets = updateTickets.filter((ticket) => new RegExp(filter,"ig").test(ticket[filtertype]));
@@ -57,4 +58,5 @@ export class AppService {
 
     return of(sortedTickets)
   }
+
 }

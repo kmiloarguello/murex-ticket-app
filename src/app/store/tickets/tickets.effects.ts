@@ -15,16 +15,16 @@ export class TicketsEffects {
 
     requestTickets$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.requestTickets),
+        ofType(ticketsActions.aRequestTickets),
         switchMap((_) => 
           this._ticketsService.getTickets().pipe(
             map((res: Tickets) => {
               const { tickets } = res;
-              this._store.dispatch(ticketsActions.setOriginalTicket({ originalTickets: tickets }));
-              return ticketsActions.successTickets({ tickets });
+              this._store.dispatch(ticketsActions.aSetOriginalTickets({ originalTickets: tickets }));
+              return ticketsActions.aSuccessTickets({ tickets });
             }),
             catchError((error) => {
-              return of(ticketsActions.errorTickets({ error }));
+              return of(ticketsActions.aErrorTickets({ error }));
             })
           )
         )
@@ -34,13 +34,13 @@ export class TicketsEffects {
 
     filterListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.filterListOfTickets),
+        ofType(ticketsActions.aFilterListOfTickets),
         withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{filter, filtertype}, tickets]) => 
           this._ticketsService.filterTickets(filter, tickets, filtertype).pipe(
             map((res: Ticket[] ) => {
               const tickets = res;
-              return ticketsActions.updateTickets({ tickets });
+              return ticketsActions.aUpdateTickets({ tickets });
             }),
           )
         )
@@ -49,15 +49,14 @@ export class TicketsEffects {
 
     filterListOfTicketsByAggregate$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.filterListOfTicketsByAggregate),
+        ofType(ticketsActions.aFilterListOfTicketsByAggregate),
         withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{filters}, tickets]) => 
           {
-            //console.log("filtttt", filters, tickets)
             return this._ticketsService.filterAggregatedTickets(filters, tickets).pipe(
             map((res: Ticket[] ) => {
               const tickets = res;
-              return ticketsActions.updateTickets({ tickets });
+              return ticketsActions.aUpdateTickets({ tickets });
             }),
           )}
         )
@@ -66,18 +65,27 @@ export class TicketsEffects {
 
     sortListOfTickets$ = createEffect(() =>
       this.actions$.pipe(
-        ofType(ticketsActions.sortListOfTickets),
+        ofType(ticketsActions.aSortListOfTickets),
         withLatestFrom(this._store.select(ticketsSelectors.selectOriginalTickets)),
         switchMap(([{ sort }, tickets]) => 
           this._ticketsService.sortTickets(sort, tickets).pipe(
             map((res: Ticket[] ) => {
               const tickets = res;
-              return ticketsActions.updateTickets({ tickets });
+              return ticketsActions.aUpdateTickets({ tickets });
             }),
           )
         )
       )    
     );
+
+    /*
+    setCurrentTicket$ = createEffect(() => this.actions$.pipe(
+      ofType(ticketsActions.aSelectTicket),
+      withLatestFrom(this._store.select(ticketsSelectors.selectCurrentTicket)),
+      switchMap(([{id}]) => {
+        return this.
+      })
+    ))*/
 
 
 }

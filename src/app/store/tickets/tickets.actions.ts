@@ -1,46 +1,61 @@
 import { createAction, props } from '@ngrx/store';
 import { Ticket } from 'src/app/core/models/tickets.models';
 
-export const requestTickets = createAction(
+export const aRequestTickets = createAction(
   '[CA] Request tickets'
 );
 
-export const setOriginalTicket = createAction(
+export const aSetOriginalTickets = createAction(
   '[Ticket] Getting original ticket',
   props<{ originalTickets: Ticket[] }>()
 )
 
-export const successTickets = createAction(
+export const aSuccessTickets = createAction(
     '[CA] Success tickets',
     props<{ tickets: Ticket[] }>()
 );
 
-export const errorTickets = createAction(
+export const aErrorTickets = createAction(
     '[CA] Error tickets',
     props<{ error: Error }>()
 );
 
-export const filterListOfTickets = createAction(
+export const aFilterListOfTickets = createAction(
   '[Tickets] Filtering tickets',
   props<{ filter: string, filtertype: string }>()
 );
 
-export const filterListOfTicketsByAggregate = createAction(
+export const aFilterListOfTicketsByAggregate = createAction(
   '[Tickets] Filtering by aggregation',
   props<{ filters: string[] }>()
 )
 
-export const sortListOfTickets = createAction(
+export const aSortListOfTickets = createAction(
   '[Tickets] Sorting tickets',
   props<{ sort: string }>()
 );
 
-export const createANewTicket = createAction(
-  '[Tickets] Creating ticket',
-  props<{ ticket: Ticket[] }>()
+export const aCreateANewTicket = createAction(
+  '[Tickets] New ticket',
+  props<{ ticket: Ticket }>()
 )
 
-export const updateTickets = createAction(
+export const aEditTicket = createAction(
+  '[Tickets] Edit Ticket',
+  props<{ticket: Ticket, index: number}>()
+)
+
+export const aDeleteTicket = createAction(
+  '[Tickets] Edit Ticket',
+  props<{id: string}>()
+)
+
+export const aSelectTicket = createAction(
+  '[Tickets] Select current ticket',
+  props<{ id: string }>()
+)
+
+export const aUpdateTickets = createAction(
   '[Tickets] Updating tickets',
   props<{ tickets: Ticket[] }>()
 );

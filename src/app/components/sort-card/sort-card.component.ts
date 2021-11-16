@@ -22,7 +22,7 @@ export class SortCardComponent implements OnInit {
   }
 
   sortTicketsBy (event) {
-    this._store.dispatch(ticketsActions.sortListOfTickets({ sort: event.target.value }))    
+    this._store.dispatch(ticketsActions.aSortListOfTickets({ sort: event.target.value }))    
   }
 
 }

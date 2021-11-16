@@ -7,7 +7,13 @@
         <div class="tickets-container__content">
             <div class="principal-content">
                 <span>Showing <strong>{{ (tickets$ | async)?.length }}</strong> tickets out of <strong>{{ (ticketsOriginal$ | async)?.length }}</strong></span>
-                <a class="btn blue-button create-new-ticket" href="#">CREATE A NEW TICKET</a>
+                
+                <div class="main-buttons-container">
+                    <a *ngIf="!cardIsActivated" class="btn blue-button create-new-ticket" href="#">CREATE A NEW TICKET</a>
+                    <a *ngIf="cardIsActivated" class="btn gray-button edit-ticket" [ngClass]="currentTicketID" href="#">EDIT TICKET</a>
+                    <a *ngIf="cardIsActivated" class="btn red-button delete-ticket" [ngClass]="currentTicketID" href="#">DELETE TICKET</a>    
+                </div>
+                
             </div>
             <hr />
         </div>

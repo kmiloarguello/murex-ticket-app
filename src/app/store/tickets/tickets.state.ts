@@ -7,4 +7,5 @@ export interface TicketState {
     isLoading: boolean;
     error: any;
     originalTickets: Ticket[];
+    currentTicketID: string;
 }

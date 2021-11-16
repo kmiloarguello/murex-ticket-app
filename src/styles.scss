@@ -26,8 +26,9 @@ hr {
   cursor: pointer;
   outline: none;
 
-  &.blue-button {
-      background-color: $secondary;
+  &.blue-button,
+  &.red-button,
+  &.gray-button {
       color: white;
       text-transform: uppercase;
       font-size: 1em;
@@ -36,6 +37,16 @@ hr {
       padding: 10px;
       border-radius: 10px;
       border: none;
+  }
+
+  &.blue-button {
+    background-color: $secondary;
+  }
+  &.red-button {
+    background-color: $primary;
+  }
+  &.gray-button {
+    background-color: $dark;
   }
 
 

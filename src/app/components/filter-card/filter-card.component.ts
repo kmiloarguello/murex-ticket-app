@@ -42,10 +42,10 @@ export class FilterCardComponent implements OnInit {
   filterBySelect(event, filterType: string = "category") {
 
     if (event.target.value !== "all") {
-      return this._store.dispatch(ticketsActions.filterListOfTickets({ filter: event.target.value, filtertype: filterType }));
+      return this._store.dispatch(ticketsActions.aFilterListOfTickets({ filter: event.target.value, filtertype: filterType }));
     }
 
-    this._store.dispatch(ticketsActions.requestTickets());
+    this._store.dispatch(ticketsActions.aRequestTickets());
 
   }
 
@@ -68,11 +68,11 @@ export class FilterCardComponent implements OnInit {
       this._checkedStatus = this._checkedStatus.filter((filter) => filter !== event.target.value);
     }
     
-    this._store.dispatch(ticketsActions.filterListOfTicketsByAggregate({ filters: this._checkedStatus })); 
+    this._store.dispatch(ticketsActions.aFilterListOfTicketsByAggregate({ filters: this._checkedStatus })); 
   }
 
   resetFilters() {
-    this._store.dispatch(ticketsActions.requestTickets());
+    this._store.dispatch(ticketsActions.aRequestTickets());
 
     for(let i=0; i<this.filterStatusOptionList.length; i++) {
       this.filterStatusOptionList[i].checked = false;

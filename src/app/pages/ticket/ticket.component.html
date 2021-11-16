@@ -32,10 +32,12 @@
                         </div>
                         <div class="item-form">
                             <label for="status">Status</label>
-                            <select formControlName="extintstatus" name="both" id="extintselect">
-                                <option value="">Both</option>
-                                <option value="external">External</option>
-                                <option value="internal">Internal</option>
+                            <select formControlName="status" name="both" id="status-select">
+                                <option value="">Select</option>
+                                <option value="OK">OK</option>
+                                <option value="FORWARD">Forward</option>
+                                <option value="WARNING">Warning</option>
+                                <option value="DECLINE">Decline</option>
                             </select> 
                         </div>
                     </div>
@@ -47,14 +49,14 @@
                         <div class="item-form">
                             <label for="i-am">I am</label>
                             <div class="status-ext-int">
-                                <input formControlName="statusextint"  type="radio" name="statusextint" value="external"
+                                <input formControlName="internal"  type="radio" name="internal" value="false"
                                     checked>
-                                <label for="huey">External</label>
+                                <label for="false">External</label>
                             </div>
                             
                             <div class="status-ext-int">
-                                <input formControlName="statusextint" type="radio" name="statusextint" value="internal">
-                                <label for="dewey">Internal</label>
+                                <input formControlName="internal" type="radio" name="internal" value="true">
+                                <label for="true">Internal</label>
                             </div>
                         </div>
                     </div>
